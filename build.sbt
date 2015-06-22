@@ -10,4 +10,6 @@ lazy val core = project.in(file("core"))
 
 lazy val crm = project.in(file("crm")).dependsOn(core).aggregate(core)
 
-lazy val root = project.in(file(".")).dependsOn(crm).aggregate(crm).enablePlugins(PlayScala)
+lazy val web = project.in(file("web")).dependsOn(core,crm).aggregate(core,crm).enablePlugins(PlayScala)
+
+lazy val root = project.in(file(".")).dependsOn(crm,web).aggregate(crm,web).enablePlugins(PlayScala)
