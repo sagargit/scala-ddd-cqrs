@@ -1,0 +1,15 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET         /contacts               controllers.ContactResource.getAllContacts
+GET         /contacts/:owner        controllers.ContactResource.getContactByOwner(owner:String)
+GET         /contacts/:name         controllers.ContactResource.getContactByName(name:String)
+POST        /contacts               controllers.ContactResource.createContact
+POST        /contacts/changeOwner   controllers.ContactResource.changeContactOwner
+
+# Map static resources from the /public folder to the /assets URL path
+GET         /assets/*file          controllers.Assets.at(path="/public", file)
+
+    
